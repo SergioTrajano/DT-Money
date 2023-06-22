@@ -4,6 +4,8 @@ import { SearchForm } from "./components/SearchForm";
 
 import { useTransactions } from "../../hooks/useTransactions";
 
+import { dateFormatter, priceFormatter } from "../../utils/formatter";
+
 import * as S from "./styles";
 
 export function Transactions() {
@@ -25,11 +27,12 @@ export function Transactions() {
                                 <td>{transaction.description}</td>
                                 <td>
                                     <S.PriceHighlight variant={transaction.type}>
-                                        {"R$" + (transaction.price / 100).toFixed(2)}
+                                        {transaction.type === "outcome" && "- "}
+                                        {priceFormatter.format(transaction.price / 100)}
                                     </S.PriceHighlight>
                                 </td>
                                 <td>{transaction.category}</td>
-                                <td>{transaction.createdAt}</td>
+                                <td>{dateFormatter.format(new Date(transaction.createdAt))}</td>
                             </tr>
                         ))}
                     </tbody>
