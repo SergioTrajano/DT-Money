@@ -1,33 +1,13 @@
-import { useEffect, useState } from "react";
-
 import { Header } from "../../components/Header";
 import { Summary } from "../../components/Summary";
 import { SearchForm } from "./components/SearchForm";
 
+import { useTransactions } from "../../hooks/useTransactions";
+
 import * as S from "./styles";
 
-interface Transaction {
-    id: number;
-    type: "income" | "outcome";
-    description: string;
-    category: string;
-    price: number;
-    createdAt: string;
-}
-
 export function Transactions() {
-    const [transactions, setTransactions] = useState<Transaction[]>([]);
-
-    async function loadTransactions() {
-        const response = await fetch(`${import.meta.env.VITE_API_URL}/transactions`);
-        const data = await response.json();
-
-        setTransactions(data);
-    }
-
-    useEffect(() => {
-        loadTransactions();
-    }, []);
+    const { transactions } = useTransactions();
 
     return (
         <div>
