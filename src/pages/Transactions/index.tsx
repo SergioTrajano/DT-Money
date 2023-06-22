@@ -17,10 +17,16 @@ interface Transaction {
 
 export function Transactions() {
     const [transactions, setTransactions] = useState<Transaction[]>([]);
+
+    async function loadTransactions() {
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/transactions`);
+        const data = await response.json();
+
+        setTransactions(data);
+    }
+
     useEffect(() => {
-        fetch(`${import.meta.env.VITE_API_URL}/transactions`)
-            .then((response) => response.json())
-            .then((data) => setTransactions(data));
+        loadTransactions();
     }, []);
 
     return (
