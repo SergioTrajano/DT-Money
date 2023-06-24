@@ -1,4 +1,6 @@
-import { useTransactions } from "../../../hooks/useTransactions";
+import { useContextSelector } from "use-context-selector";
+
+import { TransactionsContext } from "../../../contexts/TransactionsContext";
 
 interface SummaryProps {
     income: number;
@@ -7,8 +9,7 @@ interface SummaryProps {
 }
 
 export function useSummary() {
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    const { transactions } = useTransactions();
+    const transactions = useContextSelector(TransactionsContext, (context) => context.transactions);
 
     const summary = transactions.reduce(
         (acumulator, transaction) => calculateSummary(acumulator, transaction),
