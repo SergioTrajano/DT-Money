@@ -4,6 +4,7 @@ import { ArrowCircleDown, ArrowCircleUp, X } from "phosphor-react";
 import { Controller, useForm } from "react-hook-form";
 import * as zod from "zod";
 
+import { useTransactions } from "../../hooks/useTransactions";
 import * as S from "./styles";
 
 const newTransactionFormSchema = zod.object({
@@ -16,17 +17,22 @@ const newTransactionFormSchema = zod.object({
 type NewTransactionFormInputs = zod.infer<typeof newTransactionFormSchema>;
 
 export function NewTransactionModal() {
+    const { createTransaction } = useTransactions();
+
     const {
         control,
         register,
+        reset,
         handleSubmit,
         formState: { isSubmitting },
     } = useForm<NewTransactionFormInputs>({
         resolver: zodResolver(newTransactionFormSchema),
     });
 
-    function handleCreateNewTransaction(data: NewTransactionFormInputs) {
-        console.log(data);
+    async function handleCreateNewTransaction(data: NewTransactionFormInputs) {
+        await createTransaction(data);
+
+        reset();
     }
 
     return (
@@ -49,6 +55,7 @@ export function NewTransactionModal() {
                     />
                     <input
                         type="number"
+                        step={0.01}
                         inputMode="numeric"
                         placeholder="Preço"
                         {...register("price", { valueAsNumber: true })}
