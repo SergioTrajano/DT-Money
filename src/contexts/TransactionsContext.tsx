@@ -33,7 +33,15 @@ export function TransactionsProvider({ children }: TransactionsProviderProps) {
     const [transactions, setTransactions] = useState<Transaction[]>([]);
 
     async function createTransaction(formData: createTransactionProp) {
-        const { data } = await api.post("/transactions", { ...formData, createdAt: new Date() });
+        const { category, description, price, type } = formData;
+
+        const { data } = await api.post("/transactions", {
+            category,
+            description,
+            type,
+            price: price * 100,
+            createdAt: new Date(),
+        });
 
         setTransactions((prev) => [data, ...prev]);
     }
