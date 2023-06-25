@@ -5,16 +5,80 @@
             "description": "Desenvolvimento de sites",
             "type": "income",
             "category": "Venda",
-            "price": 1400000,
-            "createdAt": "2023-06-22T13:51:22.256Z"
+            "price": 1200000,
+            "createdAt": "2023-04-13T13:51:22.256Z"
         },
         {
             "id": 2,
             "description": "Hambúrguer",
             "type": "outcome",
             "category": "Alimentação",
-            "price": 5000,
-            "createdAt": "2023-06-22T13:51:22.256Z"
+            "price": 5900,
+            "createdAt": "2023-04-10T13:51:22.256Z"
+        },
+        {
+            "id": 3,
+            "description": "Computador",
+            "type": "income",
+            "category": "Venda",
+            "price": 540000,
+            "createdAt": "2023-03-15T13:51:22.256Z"
+        },
+        {
+            "id": 4,
+            "description": "Desenvolvimento de sites",
+            "type": "income",
+            "category": "Venda",
+            "price": 800000,
+            "createdAt": "2023-03-13T13:51:22.256Z"
+        },
+        {
+            "id": 5,
+            "description": "Salário",
+            "type": "income",
+            "category": "Salário",
+            "price": 540000,
+            "createdAt": "2023-02-15T13:51:22.256Z"
+        },
+        {
+            "id": 6,
+            "description": "Fone de ouvido",
+            "type": "outcome",
+            "category": "Itens",
+            "price": 15000,
+            "createdAt": "2023-02-02T13:51:22.256Z"
+        },
+        {
+            "id": 7,
+            "description": "Almoço",
+            "type": "outcome",
+            "category": "Alimentação",
+            "price": 3000,
+            "createdAt": "2023-02-05T13:51:22.256Z"
+        },
+        {
+            "id": 8,
+            "description": "Aluguel do apartamento",
+            "type": "outcome",
+            "category": "Casa",
+            "price": 120000,
+            "createdAt": "2023-02-27T13:51:22.256Z"
+        },
+        {
+            "id": 9,
+            "description": "Janta",
+            "type": "outcome",
+            "category": "Alimentação",
+            "price": 3900,
+            "createdAt": "2023-03-10T13:51:22.256Z"
+        },
+        {
+            "id": 10,
+            "description": "Aluguel do apartamento",
+            "type": "outcome",
+            "category": "Casa",
+            "price": 120000,
+            "createdAt": "2023-03-27T13:51:22.256Z"
         }
     ]
 }
